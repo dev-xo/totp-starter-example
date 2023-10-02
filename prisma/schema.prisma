@@ -1,0 +1,28 @@
+// Prisma Schema
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Totp {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+
+  hash     String  @unique
+  attempts Int     @default(0)
+  active   Boolean @default(true)
+}
+
+model User {
+  id    String @unique @default(uuid())
+  email String @unique
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+}
