@@ -7,7 +7,7 @@ This repository has been created with the intent to provide a simple example of 
 1. Clone the repository and install its dependencies:
 
 ```sh
-npm run install
+npm install
 ```
 
 2. Run Prisma migrations:
