@@ -5,9 +5,6 @@ const schema = z.object({
   SESSION_SECRET: z.string(),
   ENCRYPTION_SECRET: z.string(),
 
-  DEV_HOST_URL: z.string().optional(),
-  PROD_HOST_URL: z.string().optional(),
-
   DATABASE_URL: z.string(),
   RESEND_API_KEY: z.string(),
 })
@@ -34,10 +31,7 @@ export function initEnvs() {
  * to be included in the client.
  */
 export function getSharedEnvs() {
-  return {
-    DEV_HOST_URL: process.env.DEV_HOST_URL,
-    PROD_HOST_URL: process.env.PROD_HOST_URL,
-  }
+  return {}
 }
 
 type ENV = ReturnType<typeof getSharedEnvs>
